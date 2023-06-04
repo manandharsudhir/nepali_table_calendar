@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import 'package:flutter/widgets.dart';
-import 'package:intl/intl.dart';
+
 import 'package:nepali_utils/nepali_utils.dart';
 
 import '../customization/nepali_header_style.dart';
@@ -42,7 +42,7 @@ class NepaliCalendarHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final text = headerStyle.titleTextFormatter?.call(focusedMonth, locale) ??
-        DateFormat.yMMMM(locale).format(focusedMonth);
+        NepaliDateFormat.yMMMM().format(focusedMonth);
 
     return Container(
       decoration: headerStyle.decoration,

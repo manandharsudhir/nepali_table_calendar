@@ -538,7 +538,7 @@ class _NepaliTableCalendarState<T> extends State<NepaliTableCalendar<T>> {
               if (dowCell == null) {
                 final weekdayString = widget.daysOfWeekStyle.dowTextFormatter
                         ?.call(day, widget.locale) ??
-                    DateFormat.E(widget.locale).format(day);
+                    NepaliDateFormat.E().format(day);
 
                 final isWeekend =
                     _isWeekend(day, weekendDays: widget.weekendDays);

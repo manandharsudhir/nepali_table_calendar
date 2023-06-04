@@ -1,6 +1,8 @@
 // Copyright 2019 Aleksander Woźniak
 // SPDX-License-Identifier: Apache-2.0
 
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:nepali_utils/nepali_utils.dart';
 import 'package:simple_gesture_detector/simple_gesture_detector.dart';
@@ -76,8 +78,6 @@ class NepaliTableCalendarBase extends StatefulWidget {
     this.onPageChanged,
     this.onCalendarCreated,
   })  : assert(!dowVisible || (dowHeight != null && dowBuilder != null)),
-        assert(isSameDay(focusedDay, firstDay) || focusedDay.isAfter(firstDay)),
-        assert(isSameDay(focusedDay, lastDay) || focusedDay.isBefore(lastDay)),
         super(key: key);
 
   @override
@@ -244,6 +244,8 @@ class _NepaliTableCalendarBaseState extends State<NepaliTableCalendarBase> {
                     );
                     _pageHeight.value = _getPageHeight(rowCount);
                   }
+
+                  log("focused Month" + focusedMonth.toString());
 
                   _previousIndex = index;
                   widget.onPageChanged?.call(focusedMonth);
